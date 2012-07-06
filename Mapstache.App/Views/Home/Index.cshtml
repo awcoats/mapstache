@@ -1,0 +1,32 @@
+﻿@{
+ViewBag.Title = "Home Page";
+}
+
+<div class="hero-unit">
+    <h1>WebMap.Net!</h1>
+    <h2>About</h2>
+    <p>WebMap.Net is a .NET library designed to create content to be displayed using <a href="http://www.openlayers.org">OpenLayers</a>. The library is written in C#. </p>
+    <p><a class="btn btn-primary btn-large" href="/Examples/Index">Demo &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="span4">
+        <h2>UTF8Grid</h2>
+        <p>Generate <a href="http://mapbox.com/developers/utfgrid/">UTF8Grid</a> tiles to make your maps more interactive. UTFGrids can be used to output highly optimized feature "hit grids."
+        The UTFGrid encoding scheme encodes interactivity data for a tile in a
+        space efficient manner. It is designed to be used in browsers for
+        interactive features like displaying tooltips without having to hit the
+        server for an "info query". </p>
+        @* <p><a class="btn" href="#">View details &raquo;</a></p>*@
+    </div>
+    <div class="span4">
+        <h2>WMTS</h2>
+        <p>Generate <a href="http://www.opengeospatial.org/standards/wmts">WMTS</a> tiles to be displayed in OpenLayers using SQL Server to store your geospatial inforation. </p>
+        @*<p><a class="btn" href="#">View details &raquo;</a></p>*@
+    </div>
+    <div class="span4">
+        <h2>WMS</h2>
+        <p>Generate WMS layers to be displayed in OpenLayers using data stored in SQL Server.</p>
+    @*  <p><a class="btn" href="#">View details &raquo;</a></p>*@
+    </div>
+</div>
