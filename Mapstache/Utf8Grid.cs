@@ -14,9 +14,9 @@ namespace Mapstache
         [JsonProperty("keys")]
         public List<string> Keys { get; set; }
         [JsonProperty("data")]
-        public Dictionary<string, object> Data { get; set; }
+        private Dictionary<string, object> Data { get; set; }
         [JsonProperty("grid")]
-        public List<string> Grid { get; set; }
+        private List<string> Grid { get; set; }
 
         private Bitmap _bitmap;
         private Graphics _graphics;
@@ -43,13 +43,17 @@ namespace Mapstache
             return RectangleF.FromLTRB(lonlat1.X, lonlat2.Y, lonlat2.X, lonlat1.Y);
         }
 
-        public void FillPolygon(SqlGeography geography,int i)
+        public void FillPolygon(SqlGeography geography,int i, object data=null)
         {
               using (var gp = _graphicsPathBuilder.Build(geography))
               using (var brush = Utf8Grid.CreateBrush(i))
               {
                   _graphics.FillPath(brush,gp);
               }
+            if (data!=null)
+            {
+                this.Data.Add(i.ToString(),data);
+            }
         }
        
         

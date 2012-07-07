@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Utf8GridApplication
+namespace MvcWebRole1
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -26,13 +26,11 @@ namespace Utf8GridApplication
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
             routes.MapRoute(
-               "TMS", // Route name
-               "{controller}/{version}/{name}/{z}/{x}/{y}.png", // URL with parameters
-               new { controller = "Tms", action = "Index", version="version",name="name",x="x",y="y",z="z" } // Parameter defaults
-           );
-
+             "TMS", // Route name
+             "{controller}/{version}/{name}/{z}/{x}/{y}.png", // URL with parameters
+             new { controller = "Tms", action = "Index", version = "version", name = "name", x = "x", y = "y", z = "z" } // Parameter defaults
+         );
         }
 
         protected void Application_Start()

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .smallmap
+    {
+        width: 600px;
+        height: 400px;
+        border: 1px solid #ccc;
+    }
+    .smallmap img
+    {
+        max-width: none;
+    }
+</style>
+<h2>States Demo</h2>
+<div class="hero-unit">
+<p>This shows demonstrates creating UTF8Grids for the states in the USA. In addition to displaying the state name, and population, the outline of each state is returned as WKT. OpenLayers then displays the WKT to give the effect of highlighting the state. </p>
+        <div id="map" class="smallmap">
+        </div>
+        <p> <div id="attrs">
+        </div></p>
+    </div>
+<h3>The Code</h3>
+
+<script src="https://gist.github.com/3068420.js"> </script>
+<script src="/Scripts/OpenLayers.js"></script>
+<script src="/Examples/StatesDemo.js"></script>

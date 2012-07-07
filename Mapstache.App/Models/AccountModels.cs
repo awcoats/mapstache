@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace Utf8GridApplication.Models
+namespace MvcWebRole1.Models
 {
 
     public class ChangePasswordModel

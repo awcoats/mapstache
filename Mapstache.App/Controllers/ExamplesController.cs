@@ -11,10 +11,13 @@ namespace Utf8GridApplication.Controllers
         //
         // GET: /Examples/
 
-        public ActionResult Index()
+        public ActionResult States()
         {
             return View();
         }
-
+        public ActionResult Zips()
+        {
+            return View();
+        }
     }
 }

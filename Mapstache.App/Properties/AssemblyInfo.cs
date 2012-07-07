@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Utf8GridApplication")]
+[assembly: AssemblyTitle("MvcWebRole1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Utf8GridApplication")]
+[assembly: AssemblyProduct("MvcWebRole1")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8fb02d3f-f5f1-41f0-8ae2-1f4f45642abc")]
+[assembly: Guid("c62a4f87-c993-4a2c-90dc-b35845902046")]
 
 // Version information for an assembly consists of the following four values:
 //
