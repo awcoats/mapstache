@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.WindowsAzure;
@@ -17,4 +17,4 @@ namespace MvcWebRole1
             return base.OnStart();
         }
     }
-}
+}*/

@@ -1,10 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{435E6310-9F67-4FEF-AE01-EE3E6F098753}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{41EC5AB9-D614-47F7-902B-6FC58365F59F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapstache", "Mapstache\Mapstache.csproj", "{B940165A-7E63-40DE-8C5F-0519B0BADA75}"
@@ -12,11 +17,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapstache.Tests", "Mapstache.Tests\Mapstache.Tests.csproj", "{CCF7A5A4-4CBD-48B2-A30D-0DD1E608908E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapstache.App.Tests", "Mapstach.App.Tests\Mapstache.App.Tests.csproj", "{8199C191-8D26-4D23-BF01-1576FB1D125D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{41EC5AB9-D614-47F7-902B-6FC58365F59F}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapstache.App", "Mapstache.App\Mapstache.App.csproj", "{33343B7D-9B81-4206-AF67-710DE2A56BDD}"
 EndProject
@@ -26,6 +26,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B940165A-7E63-40DE-8C5F-0519B0BADA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B940165A-7E63-40DE-8C5F-0519B0BADA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B940165A-7E63-40DE-8C5F-0519B0BADA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,22 +42,14 @@ Global
 		{CCF7A5A4-4CBD-48B2-A30D-0DD1E608908E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCF7A5A4-4CBD-48B2-A30D-0DD1E608908E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCF7A5A4-4CBD-48B2-A30D-0DD1E608908E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8199C191-8D26-4D23-BF01-1576FB1D125D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33343B7D-9B81-4206-AF67-710DE2A56BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{33343B7D-9B81-4206-AF67-710DE2A56BDD} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
+		{8199C191-8D26-4D23-BF01-1576FB1D125D} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
 		{B940165A-7E63-40DE-8C5F-0519B0BADA75} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
 		{CCF7A5A4-4CBD-48B2-A30D-0DD1E608908E} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
-		{8199C191-8D26-4D23-BF01-1576FB1D125D} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
-		{33343B7D-9B81-4206-AF67-710DE2A56BDD} = {435E6310-9F67-4FEF-AE01-EE3E6F098753}
 	EndGlobalSection
 EndGlobal
