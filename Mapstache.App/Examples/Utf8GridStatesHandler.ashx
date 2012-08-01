@@ -18,11 +18,22 @@ namespace Utf8GridApplication.Examples
 
         public void ProcessRequest(HttpContext context)
         {
+            context.Response.ContentType = "application/json";
+            
             var x = int.Parse(context.Request.QueryString["x"]);
             var y = int.Parse(context.Request.QueryString["y"]);
             var z = int.Parse(context.Request.QueryString["z"]);
 
-            context.Response.ContentType = "application/json";
+            var key = string.Format(@"states\{0}\{1}\{1}", x, y, z);
+
+            var cachedJson = context.Cache[key];
+            if (cachedJson!=null)
+            {
+                context.Response.Write(cachedJson);
+                return;
+            }
+           
+           
             var utfgridResolution = 2;
 
             using (var utf8Grid = new Utf8Grid(utfgridResolution,x,y,z))
@@ -38,7 +49,9 @@ namespace Utf8GridApplication.Examples
                     utf8Grid.FillPolygon(geography, i,new { NAME = state["STATE_NAME"], POP2005 = state["POP2000"], Wkt = wkt });
                     i = i + 1;
                 }
-                context.Response.Write(utf8Grid.CreateUtfGridJson());
+                cachedJson = utf8Grid.CreateUtfGridJson();
+                context.Cache.Insert(key,cachedJson);
+                context.Response.Write(cachedJson);
             }
         }
        

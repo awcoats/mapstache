@@ -59,6 +59,7 @@
     <Compile Include="RectangleF.Extensions.cs" />
     <Compile Include="SphericalMercator.cs" />
     <Compile Include="SqlGeography.Extensions.cs" />
+    <Compile Include="SqlGeometry.Extentsions.cs" />
     <Compile Include="TileSystemHelper.cs" />
     <Compile Include="Utf8Grid.cs" />
   </ItemGroup>

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "WMTS Demo";
+}
+<style>
+    .smallmap
+    {
+        width: 600px;
+        height: 400px;
+        border: 1px solid #ccc;
+    }
+    .smallmap img
+    {
+        max-width: none;
+    }
+</style>
+<h2>
+    WMS Server Demo</h2>
+<div class="hero-unit">
+    <p>
+        This shows demonstrates implementing a tile server. There are various ways to implement a tile server - WMTS, XYZ, TMS
+    </p>
+    <p>
+        <div id="attrs">
+            &nbsp;
+        </div>
+    </p>
+    <div id="map" class="smallmap">
+    </div>
+    <p>
+    </p>
+</div>
+<h3>
+    The Code</h3>
+<script src="https://gist.github.com/3222120.js"> </script>
+<script src="/Scripts/OpenLayers.js"></script>
+<script src="/Scripts/jquery-1.7.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var osm = new OpenLayers.Layer.OSM();
+        var map = new OpenLayers.Map({
+            div: "map",
+            projection: "EPSG:900913",
+            layers: [osm],
+           
+        });
+        map.addControl( new OpenLayers.Control.LayerSwitcher() );
+        var centerLL = new OpenLayers.LonLat(-97, 33);
+        var centerM = centerLL.transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+        map.setCenter(centerM, 3);
+        
+        var xyzLayer = new OpenLayers.Layer.XYZ( "XYZ",
+                    "/xyz/?x=${x}&y=${y}&z=${z}",
+                    {sphericalMercator: true,isBaseLayer:false, visibility:false} );
+        map.addLayer( xyzLayer);
+        
+         var tmsLayer = new OpenLayers.Layer.TMS( "TMS",
+                    "/tms/",
+                    { layername: "states",  type: "png", visibility:true,isBaseLayer:false} );
+        map.addLayer(tmsLayer);
+        
+        var wmts = new OpenLayers.Layer.WMTS({
+            name: "WMTS ",
+            url: "/wmts/",
+            layer: "layer_id",
+            style: "default",
+            matrixSet: "matrix_id",
+            isBaseLayer:false,
+            visibility:false
+        });
+        map.addLayer(wmts);
+    });
+</script>

@@ -37,14 +37,13 @@
 <script src="https://gist.github.com/3068420.js"> </script>
 <script src="/Scripts/OpenLayers.js"></script>
 <script src="/Scripts/jquery-1.7.2.min.js"></script>
-<script src="/Scripts/Mapstache/Overview2.js"></script>
 <script>
     $(document).ready(function () {
 
         var osm = new OpenLayers.Layer.OSM();
 
         var statesUtf8Grid = new OpenLayers.Layer.UTFGrid({
-            url: "/examples/Utf8GridStatesHandler.ashx?z=${z}&x=${x}&y=${y}",
+            url: "/Utf8Grid/States/?z=${z}&x=${x}&y=${y}",
             utfgridResolution: 2, // default is 2
             displayInLayerSwitcher: true
         });
@@ -134,9 +133,5 @@
 
         // activate the control that responds to mousemove
         toggleControl({ value: "move" });
-
-        var overviewMap = new OpenLayers.Control.OverviewMap2();
-        map.addControl(overviewMap);
-
     });
 </script>

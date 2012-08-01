@@ -29,8 +29,12 @@ namespace MvcWebRole1
             routes.MapRoute(
              "TMS", // Route name
              "{controller}/{version}/{name}/{z}/{x}/{y}.png", // URL with parameters
-             new { controller = "Tms", action = "Index", version = "version", name = "name", x = "x", y = "y", z = "z" } // Parameter defaults
-         );
+             new { controller = "Tms", action = "Index", version = "version", name = "name", x = "x", y = "y", z = "z" });// Parameter defaults
+
+            routes.MapRoute(
+            "Utf8Grid", // Route name
+            "{controller}/{action}/{z}/{x}/{y}", // URL with parameters
+            new { controller = "Utf8Grid", action = "action", x = "x", y = "y", z = "z" });
         }
 
         protected void Application_Start()

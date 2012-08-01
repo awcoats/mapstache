@@ -97,7 +97,10 @@
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TmsController.cs" />
+    <Compile Include="Controllers\Utf8GridController.cs" />
     <Compile Include="Controllers\WmsController.cs" />
+    <Compile Include="Controllers\WmtsController.cs" />
+    <Compile Include="Controllers\XyzController.cs" />
     <Compile Include="Examples\ZipsRepository.cs" />
     <Compile Include="Examples\StatesRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,7 +171,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Examples\ZipsDemo.js" />
-    <Content Include="Examples\StatesDemo.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\img\blank.gif" />
     <Content Include="Scripts\img\cloud-popup-relative.png" />
@@ -305,6 +307,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Examples\Wms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Examples\Tiles.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

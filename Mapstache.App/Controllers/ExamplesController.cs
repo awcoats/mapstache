@@ -19,5 +19,13 @@ namespace Utf8GridApplication.Controllers
         {
             return View();
         }
+        public ActionResult Wms()
+        {
+            return View();
+        }
+        public ActionResult Tiles()
+        {
+            return View();
+        }
     }
 }

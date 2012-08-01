@@ -1,4 +1,5 @@
-﻿using System.Data.SqlTypes;
+﻿using System;
+using System.Data.SqlTypes;
 using System.Drawing;
 using Microsoft.SqlServer.Types;
 
@@ -13,11 +14,12 @@ namespace Mapstache
                 return new SqlGeography();
             }
 
-            //TODO - make sure box is no bigger than -180,-90 to 360,90
 
-            //bbox = SphericalMercator.ToLonLat(bbox);
-            var tlLatLng = new PointF(bbox.Left, bbox.Top);
-            var brLatLng = new PointF(bbox.Right, bbox.Bottom);
+            //var tlLatLng = new PointF(bbox.Left, bbox.Top);
+            //var brLatLng = new PointF(bbox.Right, bbox.Bottom);
+
+            var tlLatLng = new PointF(Math.Max(-180, bbox.Left), Math.Max(0, bbox.Top));
+            var brLatLng = new PointF(Math.Min(-1, bbox.Right), Math.Min(89, bbox.Bottom));
 
             //TODO: create geography using GeographyBuilder and then convert to WKT.
             var wkt = string.Format(
@@ -29,5 +31,7 @@ namespace Mapstache
                     tlLatLng.X, tlLatLng.Y);
             return SqlGeography.STGeomFromText(new SqlChars(new SqlString(wkt)), EPSG.WGS84);
         }
+
+        
     }
 }
