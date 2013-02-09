@@ -8,7 +8,7 @@ namespace Mapstache
 {
     public static partial class SqlGeographyExtensions
     {
-        private class ProjectSink : IGeographySink
+        private class ProjectSink : IGeographySink110
         {
             private readonly SqlGeometryBuilder _builder = new SqlGeometryBuilder();
 
@@ -51,6 +51,11 @@ namespace Mapstache
             public SqlGeometry ConstructedGeometry
             {
                 get { return _builder.ConstructedGeometry; }
+            }
+
+            public void AddCircularArc(double x1, double y1, double? z1, double? m1, double x2, double y2, double? z2, double? m2)
+            {
+                throw new NotImplementedException();
             }
         }
 
