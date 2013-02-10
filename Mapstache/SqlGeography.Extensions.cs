@@ -59,6 +59,11 @@ namespace Mapstache
             }
         }
 
+        /// <summary>
+        /// Projects a SqlGeography to web mercator.
+        /// </summary>
+        /// <param name="geography"></param>
+        /// <returns></returns>
         public static SqlGeometry FromLonLat(this SqlGeography geography)
         {
             var projectionSink = new ProjectSink();
