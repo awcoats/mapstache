@@ -60,7 +60,7 @@ namespace Mapstache
         }
 
         /// <summary>
-        /// Projects a SqlGeography to web mercator.
+        /// Projects a SqlGeography to transverse mercator.
         /// </summary>
         /// <param name="geography"></param>
         /// <returns></returns>
