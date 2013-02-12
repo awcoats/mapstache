@@ -6,6 +6,7 @@ using Microsoft.SqlServer.Types;
 
 namespace Mapstache
 {
+    // lots of new comments on this branch
     public static partial class SqlGeographyExtensions
     {
         private class ProjectSink : IGeographySink110
