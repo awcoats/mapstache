@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "UTF8Grid States Demo";
+}
+<style>
+    .smallmap
+    {
+        width: 600px;
+        height: 400px;
+        border: 1px solid #ccc;
+    }
+    .smallmap img
+    {
+        max-width: none;
+    }
+</style>
+<h2>
+    States Demo</h2>
+<div class="hero-unit">
+    <p>
+        This shows demonstrates creating UTF8Grids for the states in the USA. In addition
+        to displaying the state name, and population, the outline of each state is returned
+        as WKT. OpenLayers then displays the WKT to give the effect of highlighting the
+        state.
+    </p>
+    <p>
+        <div id="attrs">
+            &nbsp;
+        </div>
+    </p>
+    <div id="map" class="smallmap">
+    </div>
+    <p>
+    </p>
+</div>
+<h3>
+    The Code</h3>
+<script src="https://gist.github.com/3068420.js"> </script>
+<script src="/Scripts/OpenLayers.js"></script>
+<script src="/Scripts/jquery-1.7.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var osm = new OpenLayers.Layer.OSM();
+
+        var statesUtf8Grid = new OpenLayers.Layer.UTFGrid({
+            url: "/Utf8Grid/States/?z=${z}&x=${x}&y=${y}",
+            utfgridResolution: 2, // default is 2
+            displayInLayerSwitcher: true
+        });
+
+
+        // add editable layer
+        var styleMap = new OpenLayers.StyleMap({
+            'strokeWidth': 2,
+            'strokeColor': '#0000FF',
+            'fillColor': '#0000FF',
+            'fillOpacity': 0.1
+        });
+        var editableVectorLayer = new OpenLayers.Layer.Vector("Editable", { displayInLayerSwitcher: false, styleMap: styleMap });
+
+        var map = new OpenLayers.Map({
+            div: "map",
+            projection: "EPSG:900913",
+            layers: [osm]
+        });
+        var centerLL = new OpenLayers.LonLat(-97, 33);
+        var centerM = centerLL.transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+        map.setCenter(centerM, 3);
+        map.addLayer(statesUtf8Grid);
+        map.addLayer(editableVectorLayer);
+
+        var callback = function (infoLookup) {
+            var msg = "&nbsp;";
+            if (infoLookup) {
+                var info;
+                for (var idx in infoLookup) {
+                    // idx can be used to retrieve layer from map.layers[idx]
+                    info = infoLookup[idx];
+                    if (info && info.data) {
+                        msg += "[" + info.id + "] <strong>" +
+                            info.data.NAME + "</strong> Population: " +
+                                info.data.POP2005;
+
+                        var editableLayer = this.map.getLayersByName('Editable')[0];
+                        editableLayer.removeAllFeatures();
+                        var wktParser = new OpenLayers.Format.WKT();
+                        var features = wktParser.read(info.data.Wkt);
+                        var bounds;
+                        if (features) {
+                            if (features.constructor != Array) {
+                                features = [features];
+                            }
+                            for (var i = 0; i < features.length; ++i) {
+                                if (!bounds) {
+                                    bounds = features[i].geometry.getBounds();
+                                } else {
+                                    bounds.extend(features[i].geometry.getBounds());
+                                }
+                            }
+                            editableLayer.addFeatures(features);
+                        }
+                    }
+                }
+
+            }
+            document.getElementById("attrs").innerHTML = msg;
+        };
+
+        var controls = {
+            move: new OpenLayers.Control.UTFGrid({
+                callback: callback,
+                handlerMode: "move"
+            }),
+            hover: new OpenLayers.Control.UTFGrid({
+                callback: callback,
+                handlerMode: "hover"
+            }),
+            click: new OpenLayers.Control.UTFGrid({
+                callback: callback,
+                handlerMode: "click"
+            })
+        };
+        for (var key in controls) {
+            map.addControl(controls[key]);
+        }
+
+        function toggleControl(el) {
+            for (var c in controls) {
+                controls[c].deactivate();
+            }
+            controls[el.value].activate();
+        }
+
+        // activate the control that responds to mousemove
+        toggleControl({ value: "move" });
+    });
+</script>
