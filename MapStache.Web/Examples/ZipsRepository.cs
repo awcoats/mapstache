@@ -21,7 +21,7 @@ namespace Utf8GridApplication.Examples
             {
                 yield break;
             }
-            var query = "Select Geom,ZIP,PO_NAME From Zips where [Geom].Filter( geography::STGeomFromText(@Geography,4269)) = 1";
+            var query = "Select Geom,Name as Zip,'aaa' as PO_NAME From US_COUNTY_2015 where [Geom].Filter( geography::STGeomFromText(@Geography,4269)) = 1 and STATEFP!='02'";
 
             using (var connection = CreateAndOpenConnection())
             using (var command = new SqlCommand(query, connection))
