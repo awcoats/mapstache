@@ -5,8 +5,7 @@ using Microsoft.SqlServer.Types;
 using Utf8GridApplication.Examples;
 
 namespace MapStache.App.Controllers
-{
-    public class Utf8GridController : Controller
+{   public class Utf8GridController : Controller
     {
         public RectangleF GetBoundingBoxInLatLngWithMargin(int tileX, int tileY, int zoom)
         {
@@ -35,11 +34,11 @@ namespace MapStache.App.Controllers
                     int i = 1;
                     foreach (var state in states)
                     {
-                        var geography = (SqlGeography) state["Geom"];
-                        var projected = ((SqlGeography) state["Geom"]).FromLonLat().MakeValid();
+                        var geography = (SqlGeography) state["Shape"];
+                        var projected = ((SqlGeography) state["Shape"]).FromLonLat().MakeValid();
                         var wkt = projected.STAsText().ToSqlString().Value;
                         utf8Grid.FillPolygon(geography, i,
-                                             new {NAME = state["NAME"], POP2005 = state["ALAND"], Wkt = wkt});
+                                             new {NAME = state["NAME"], POP2005 =100, Wkt = wkt});
                         i = i + 1;
                     }
                 }
@@ -49,4 +48,5 @@ namespace MapStache.App.Controllers
             }
         }
     }
+ 
 }

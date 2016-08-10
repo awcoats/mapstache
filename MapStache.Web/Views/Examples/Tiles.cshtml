@@ -50,12 +50,12 @@
         
         var xyzLayer = new OpenLayers.Layer.XYZ( "XYZ",
                     "/xyz/?x=${x}&y=${y}&z=${z}",
-                    {sphericalMercator: true,isBaseLayer:false, visibility:false} );
+                    {sphericalMercator: true,isBaseLayer:false, visibility:true} );
         map.addLayer( xyzLayer);
         
          var tmsLayer = new OpenLayers.Layer.TMS( "TMS",
-                    "/tms/",
-                    { layername: "states",  type: "png", visibility:true,isBaseLayer:false} );
+                    "/tms",
+                    { layername: "states",  type: "xxx", visibility:false,isBaseLayer:false,serviceVersion:"1"} );
         map.addLayer(tmsLayer);
         
         var wmts = new OpenLayers.Layer.WMTS({

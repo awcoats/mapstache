@@ -20,7 +20,7 @@ namespace Mapstache
             {
                 yield break;
             }
-            var query = string.Format("Select Geom,Name,ALAND From {0} where [Geom].Filter( geography::STGeomFromText(@Geography,4269)) = 1 and STATEFP!='02'", layer);
+            var query = string.Format($"Select Shape From {layer} where [Shape].STIntersects( geography::STGeomFromText(@Geography,{EPSG.WGS84})) = 1 and STATE_FIPS!='02'", layer);
 
             using (var connection = CreateAndOpenConnection())
             using (var command = new SqlCommand(query, connection))

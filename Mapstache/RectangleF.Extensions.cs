@@ -29,7 +29,8 @@ namespace Mapstache
                     brLatLng.X, brLatLng.Y,
                     tlLatLng.X, brLatLng.Y,
                     tlLatLng.X, tlLatLng.Y);
-            return SqlGeography.STGeomFromText(new SqlChars(new SqlString(wkt)), 4269);
+            var g= SqlGeography.STGeomFromText(new SqlChars(new SqlString(wkt)), 4269);
+            return g;
         }
 
         

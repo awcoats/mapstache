@@ -16,7 +16,7 @@ namespace Utf8GridApplication.Controllers
             var bounds = CreateBBox(bbox);
             var boundsLL = SphericalMercator.ToLonLat(bounds);
             var boundsGeographyLL = boundsLL.ToSqlGeography();
-            var  states = new GeometryDataSource().Query(boundsGeographyLL, "US_COUNTY_2015");;
+            var  states = new GeometryDataSource().Query(boundsGeographyLL, "sde.COUNTY_ESRI_WGS84");;
 
             var memoryStream = new MemoryStream();
             using (var bitmap = new Bitmap(width, height))
@@ -27,7 +27,7 @@ namespace Utf8GridApplication.Controllers
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 foreach (var state in states)
                 {
-                    var geography = (SqlGeography)state["Geom"];
+                    var geography = (SqlGeography)state["Shape"];
                     {
                         using (var gp = CreateGraphicsPath(bounds, bitmap, geography))
                         {

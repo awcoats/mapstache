@@ -41,8 +41,11 @@ namespace Utf8GridApplication.Controllers
             return File(memoryStream.ToArray(), "image/png");
         }
 
-        public ActionResult Index(string version,string layer,int x, int y, int z)
+        [Route("tms1/{name}/{z}/{x}/{y}.xxx")]
+        [HttpGet]
+        public ActionResult Index(string name,int z, int x, int y)
         {
+          //  var y = int.Parse(yimage.Split('.')[0]);
             var memoryStream = new MemoryStream();
             using (var bitmap = new Bitmap(256, 256))
             using (var g = Graphics.FromImage(bitmap))
@@ -53,11 +56,11 @@ namespace Utf8GridApplication.Controllers
                 var boundsGeographyLL = GetBoundingBoxInLatLng(x, y, z);
                 if (boundsGeographyLL.Bottom > 0)
                 {
-                    var states = new GeometryDataSource().Query(boundsGeographyLL.ToSqlGeography(), "states");
+                    var states = new GeometryDataSource().Query(boundsGeographyLL.ToSqlGeography(), "sde.COUNTY_ESRI_WGS84");
                     var builder = new GraphicsPathBuilder(SphericalMercator.FromLonLat(boundsGeographyLL), new Size(256, 256));
                     foreach (var state in states)
                     {
-                        var geography = (SqlGeography)state["geom"];
+                        var geography = (SqlGeography)state["Shape"];
                         {
                             using (var gp = builder.Build(geography))
                             {

@@ -20,7 +20,8 @@ namespace MapStache.App.Controllers
             return RectangleF.FromLTRB(lonlat1.X, lonlat2.Y, lonlat2.X, lonlat1.Y);
         }
 
-
+        //[Route("tms1/{name}/{z}/{x}/{y}.xxx")]
+        //[HttpGet]
         public ActionResult Index(int x, int y, int z)
         {
             var ymax = 1 << z;
@@ -35,11 +36,11 @@ namespace MapStache.App.Controllers
                 var boundsGeographyLL = GetBoundingBoxInLatLng(x, y, z);
                 if (boundsGeographyLL.Bottom > 0)
                 {
-                    var states = new GeometryDataSource().Query(boundsGeographyLL.ToSqlGeography(), "states");
+                    var states = new GeometryDataSource().Query(boundsGeographyLL.ToSqlGeography(), "sde.COUNTY_ESRI_WGS84");
                     var builder = new GraphicsPathBuilder(SphericalMercator.FromLonLat(boundsGeographyLL), new Size(256 ,256));
                     foreach (var state in states)
                     {
-                        var geography = (SqlGeography) state["geom"];
+                        var geography = (SqlGeography) state["Shape"];
                         {
                             using (var gp = builder.Build(geography))
                             {

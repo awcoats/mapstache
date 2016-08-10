@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using Mapstache;
 using Microsoft.SqlServer.Types;
 
 namespace Utf8GridApplication.Examples
@@ -21,7 +22,7 @@ namespace Utf8GridApplication.Examples
             {
                 yield break;
             }
-            var query = "Select Geom,Name,ALAND From [US_COUNTY_2015] where [Geom].Filter( geography::STGeomFromText(@Geography,4269)) = 1 and STATEFP!='02'";
+            var query = $"Select Shape,Name From sde.COUNTY_ESRI_WGS84 where [Shape].Filter( geography::STGeomFromText(@Geography,{EPSG.WGS84})) = 1 and STATE_FIPS!='02'";
 
             using (var connection = CreateAndOpenConnection())
             using (var command = new SqlCommand(query, connection))
