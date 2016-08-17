@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Mapstache;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WebStache;
 
 namespace WebMap.Tests
 {

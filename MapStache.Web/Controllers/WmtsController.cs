@@ -2,9 +2,8 @@
 using System.Drawing.Imaging;
 using System.IO;
 using System.Web.Mvc;
-using Mapstache;
 
-namespace MapStache.App.Controllers
+namespace MapStache.Web.Controllers
 {
     public class WmtsController : Controller
     {

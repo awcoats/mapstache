@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.SqlServer.Types;
 
-namespace Mapstache
+namespace MapStache
 {
     // lots of new comments on this branch
     public static partial class SqlGeographyExtensions

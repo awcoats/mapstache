@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using Microsoft.SqlServer.Types;
 
-namespace Mapstache
+namespace MapStache
 {
     public class GeometryDataSource
     {

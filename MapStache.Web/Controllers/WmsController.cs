@@ -4,10 +4,9 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
-using Mapstache;
 using Microsoft.SqlServer.Types;
 
-namespace Utf8GridApplication.Controllers
+namespace MapStache.Web.Controllers
 {
     public class WmsController : Controller
     {

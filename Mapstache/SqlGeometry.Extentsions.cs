@@ -2,7 +2,7 @@
 using System.Drawing;
 using Microsoft.SqlServer.Types;
 
-namespace WebStache
+namespace MapStache
 {
     public static class SqlGeometryExtensions
     {

@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using Microsoft.SqlServer.Types;
 
-namespace Utf8GridApplication.Examples
+namespace MapStache.Web.Examples
 {
     public class ZipsRepository
     {

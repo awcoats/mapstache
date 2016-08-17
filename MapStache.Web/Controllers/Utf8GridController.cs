@@ -1,10 +1,9 @@
 ﻿using System.Drawing;
 using System.Web.Mvc;
-using Mapstache;
+using MapStache.Web.Examples;
 using Microsoft.SqlServer.Types;
-using Utf8GridApplication.Examples;
 
-namespace MapStache.App.Controllers
+namespace MapStache.Web.Controllers
 {   public class Utf8GridController : Controller
     {
         public RectangleF GetBoundingBoxInLatLngWithMargin(int tileX, int tileY, int zoom)

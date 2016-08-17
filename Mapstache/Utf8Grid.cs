@@ -6,8 +6,7 @@ using System.Text;
 using Microsoft.SqlServer.Types;
 using Newtonsoft.Json;
 
-
-namespace Mapstache
+namespace MapStache
 {
     public class Utf8Grid: IDisposable
     {

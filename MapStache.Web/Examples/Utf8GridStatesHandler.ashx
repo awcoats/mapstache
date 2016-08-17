@@ -3,8 +3,10 @@
 using System.Drawing;
 using System.Web;
 using System.Web.SessionState;
-using Mapstache;
+using MapStache;
+using MapStache.Web.Examples;
 using Microsoft.SqlServer.Types;
+
 namespace Utf8GridApplication.Examples
 {
     public class Utf8GridHandler : IRequiresSessionState, IHttpHandler

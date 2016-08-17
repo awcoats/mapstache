@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Mapstache
+namespace MapStache
 {
     public static class SphericalMercator
     {

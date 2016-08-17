@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using Mapstache;
 using Microsoft.SqlServer.Types;
 
-namespace Utf8GridApplication.Examples
+namespace MapStache.Web.Examples
 {
     public class StatesRepository
     {

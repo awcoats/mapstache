@@ -8,7 +8,7 @@
     <ProjectGuid>{B940165A-7E63-40DE-8C5F-0519B0BADA75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebStache</RootNamespace>
+    <RootNamespace>MapStache</RootNamespace>
     <AssemblyName>MapStache</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
