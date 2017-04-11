@@ -95,7 +95,7 @@ namespace Mapstache
             return coords;
         }
 
-        private PointF GetPixel(PointF ll)
+        public PointF GetPixel(PointF ll)
         {
             var meters = SphericalMercator.FromLonLat(ll);
             var x = (meters.X - _topLeft.X)/_metersToPixel;

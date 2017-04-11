@@ -18,8 +18,8 @@ namespace Mapstache
             //var tlLatLng = new PointF(bbox.Left, bbox.Top);
             //var brLatLng = new PointF(bbox.Right, bbox.Bottom);
 
-            var tlLatLng = new PointF(Math.Max(-180, bbox.Left), Math.Max(0, bbox.Top));
-            var brLatLng = new PointF(Math.Min(-1, bbox.Right), Math.Min(89, bbox.Bottom));
+            var tlLatLng = new PointF(Math.Max(-180, bbox.Left), Math.Max(-90, bbox.Top));
+            var brLatLng = new PointF(Math.Min(180, bbox.Right), Math.Min(90, bbox.Bottom));
 
             //TODO: create geography using GeographyBuilder and then convert to WKT.
             var wkt = string.Format(

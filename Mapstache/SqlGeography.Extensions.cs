@@ -46,7 +46,7 @@ namespace Mapstache
 
             public void SetSrid(int srid)
             {
-                _builder.SetSrid(EPSG.SphericalMercator);
+                _builder.SetSrid(srid);
             }
 
             public SqlGeometry ConstructedGeometry

@@ -11,10 +11,5 @@ namespace Mapstache
         {
             get { return 4326; }
         }
-
-        public static int SphericalMercator
-        {
-            get { return 3857; }
-        }
     }
 }
